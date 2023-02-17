@@ -55,10 +55,10 @@ function startButton() {
 }
 
 function updateClockInfo({ days, hours, minutes, seconds }) {
-  refs.days.textContent = `${days}`;
-  refs.hours.textContent = `${hours}`;
-  refs.minutes.textContent = `${minutes}`;
-  refs.seconds.textContent = `${seconds}`;
+  refs.days.textContent = addLeadingZero(days);
+  refs.hours.textContent = addLeadingZero(hours);
+  refs.minutes.textContent = addLeadingZero(minutes);
+  refs.seconds.textContent = addLeadingZero(seconds);
 }
 
 function convertMs(ms) {
@@ -66,13 +66,13 @@ function convertMs(ms) {
   const minute = second * 60;
   const hour = minute * 60;
   const day = hour * 24;
-  const days = pad(Math.floor(ms / day));
-  const hours = pad(Math.floor((ms % day) / hour));
-  const minutes = pad(Math.floor(((ms % day) % hour) / minute));
-  const seconds = pad(Math.floor((((ms % day) % hour) % minute) / second));
+  const days = Math.floor(ms / day);
+  const hours = Math.floor((ms % day) / hour);
+  const minutes = Math.floor(((ms % day) % hour) / minute);
+  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
   return { days, hours, minutes, seconds };
 }
 
-function pad(value) {
+function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
