@@ -6,14 +6,14 @@ function onClick() {
   timerId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
   }, 1000);
-  startBtn.setAttribute('disabled', 'disabled');
-  stopBtn.removeAttribute('disabled', 'disabled');
+  startBtn.setAttribute('disabled');
+  stopBtn.removeAttribute('disabled');
 }
 
 stopBtn.addEventListener('click', () => {
   clearInterval(timerId);
-  stopBtn.setAttribute('disabled', 'disabled');
-  startBtn.removeAttribute('disabled', 'disabled');
+  stopBtn.setAttribute('disabled');
+  startBtn.removeAttribute('disabled');
 });
 
 function getRandomHexColor() {
