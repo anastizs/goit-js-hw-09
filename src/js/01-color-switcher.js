@@ -5,7 +5,7 @@ startBtn.addEventListener('click', onClick);
 function onClick() {
   timerId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
-  }, 1000);
+  }, 5000);
   startBtn.setAttribute('disabled', true);
   stopBtn.removeAttribute('disabled', true);
 }
