@@ -2,6 +2,7 @@ const startBtn = document.querySelector('[data-start]');
 const stopBtn = document.querySelector('[data-stop]');
 startBtn.addEventListener('click', onClick);
 
+let timerId;
 function onClick() {
   timerId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
